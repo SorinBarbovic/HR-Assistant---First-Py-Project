@@ -2,12 +2,10 @@
 
 {% block content %}
 
-<!-- This is to edit task -->
-
-<h3 class="text-center m-4">Update Task</h3>
+<h3 class="text-center m-4">Add Holiday</h3>
 {% if success %}
 <div class="alert alert-success" role="alert">
-    Task updated successfully!
+    New holiday added successfully!
     <a href="{% url 'index' %}" class="alert-link">Go to Home Page</a>
 </div>
 {% else %}
@@ -16,13 +14,13 @@
         <!-- Card from bootswatch -->
         <div class="card text-white bg-secondary mb-3">
             <div class="card-header">
-                <i class="fa-solid fa-pencil fa-lg"></i> Update task
+                <i class="fa-solid fa-briefcase fa-lg"></i> Holiday login
             </div>
             <div class="card-body">
-            <form action="" method="POST">
+            <form action="{% url 'add_holiday' %}" method="POST">
                 {% csrf_token %}
                 {{ form.as_p}}
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">Add</button>
                 <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
             </form>
             </div>
